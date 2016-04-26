@@ -16,6 +16,9 @@ app.on('ready', function() {
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + pagepath);
 
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
+
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
     // Dereference the window object, usually you would store windows
