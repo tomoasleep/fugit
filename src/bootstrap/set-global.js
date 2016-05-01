@@ -4,3 +4,4 @@ import React from 'react';
 export default function setGlobal() {
   global.React = React;
 }
+setGlobal();

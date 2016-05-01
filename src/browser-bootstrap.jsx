@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import setGlobal from './bootstrap/set-global';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, hashHistory } from 'react-router';
 import InitialPage from './pages/initial-page';
 import reducers from './reducers';
-import setGlobal from './bootstrap/set-global';
+import requestMiddleware from './utils/request-middleware';
+import createLogger from 'redux-logger';
 
-setGlobal();
 process.on('uncaughtException', (error) => console.error(error.message, error.stack))
 
-let store = createStore(reducers)
+let middleware = applyMiddleware(requestMiddleware, createLogger());
+let store = createStore(reducers, middleware);
+window.store = store;
 
 window.onload = () => {
   ReactDOM.render(
