@@ -1,4 +1,5 @@
-import {Layout, Header, Drawer, Content, Navigation} from 'react-mdl';
+import { Layout, Header, Drawer, Content, Navigation } from 'react-mdl';
+import Log from '../containers/log'
 
 const InitialPage = () => (
   <Layout>
@@ -10,8 +11,8 @@ const InitialPage = () => (
       </Navigation>
     </Drawer>
     <Content>
-     <div className="page-content">
-        Hello, world!
+      <div className="page-content">
+        <Log uri="." />
       </div>
     </Content>
   </Layout>
